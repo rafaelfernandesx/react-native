@@ -14,21 +14,36 @@ const Input = styled.TextInput`
   border: 1px solid blue;
 `;
 
+const Quadrado = styled.View`
+  height: 200px;
+  width: 200px;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid blue;
+  margin-top: 20px;
+`;
+
 const Hello = () => {
   const [name, setName] = useState('Rafael');
-  const [backupName, setbackupName] = useState('');
+  const [mostrar, setMostrar] = useState(false);
 
   const handleClick = () => {
-    setbackupName(name);
+    setMostrar(!mostrar);
   };
 
   return (
     <View>
       <Input value={name} onChangeText={t => setName(t)} />
 
-      <Button title="Change name to Jhon" onPress={handleClick} />
+      <Button title={mostrar ? 'Ocultar Nome' : 'Mostrar Nome'} onPress={handleClick} />
 
-      <Text>{backupName}</Text>
+      {mostrar == true &&
+        <Quadrado>
+          <Text>Seu nome é: </Text>
+          <Text>{name}</Text>
+        </Quadrado>
+      }
+
     </View>
   );
 };
