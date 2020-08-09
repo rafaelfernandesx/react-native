@@ -2,10 +2,15 @@ import React from 'react';
 import styled from 'styled-components/native';
 
 const Page = styled.SafeAreaView`
+  flex: 1;
+`;
+
+const Header = styled.View`
   flex-direction: row;
   justify-content: center;
-  align-items: center;
-  flex: 1;
+  align-items: flex-end;
+  height: 200px;
+  background-color: #ccc;
 `;
 
 const Squad = styled.View`
@@ -17,9 +22,12 @@ const Squad = styled.View`
 export default () => {
   return (
     <Page>
-      <Squad cor="red"></Squad>
-      <Squad cor="green"></Squad>
-      <Squad cor="blue"></Squad>
+      <Header>
+        <Squad cor="red"></Squad>
+        <Squad style={{alignSelf: 'flex-start'}} cor="green"></Squad>
+        <Squad cor="blue"></Squad>
+        <Squad cor="gray"></Squad>
+      </Header>
     </Page>
   );
 };
