@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Text } from 'react-native';
 import styled from 'styled-components/native';
 
@@ -9,8 +9,11 @@ const Page = styled.SafeAreaView`
 `;
 
 const Hello = ({frase}) => {
+  const [ name, setName ] = useState('Rafael');
+
+
   return (
-    <Text>{frase}</Text>
+  <Text>Nome: {name}</Text>
   );
 
 };
@@ -19,7 +22,6 @@ export default () => {
   return (
     <Page>
       <Hello frase="Bem vindo" />
-      <Hello frase="Frase de Teste 1" />
     </Page>
   );
 };
