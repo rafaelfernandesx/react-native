@@ -8,9 +8,9 @@ const Page = styled.SafeAreaView`
   align-items: center;
 `;
 
-const Hello = (props) => {
+const Hello = ({frase}) => {
   return (
-    <Text>{props.frase}</Text>
+    <Text>{frase}</Text>
   );
 
 };
