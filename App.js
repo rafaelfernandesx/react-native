@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, Text } from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, Button} from 'react-native';
 import styled from 'styled-components/native';
 
 const Page = styled.SafeAreaView`
@@ -15,12 +15,20 @@ const Input = styled.TextInput`
 `;
 
 const Hello = () => {
-  const [ name, setName ] = useState('Rafael');
+  const [name, setName] = useState('Rafael');
+  const [backupName, setbackupName] = useState('');
+
+  const handleClick = () => {
+    setbackupName(name);
+  };
 
   return (
     <View>
-      <Input value={name} onChangeText={ t => setName(t)} />
-      <Text>Olá {name}</Text>
+      <Input value={name} onChangeText={t => setName(t)} />
+
+      <Button title="Change name to Jhon" onPress={handleClick} />
+
+      <Text>{backupName}</Text>
     </View>
   );
 };
