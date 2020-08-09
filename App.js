@@ -1,49 +1,23 @@
 import React from 'react';
-import {SafeAreaView, Text, StyleSheet} from 'react-native';
+import styled from 'styled-components/native';
 
-// -------- maneiras de criar component
-// const TextoInicial = () => {
-//   return (
-//     <Text>Texto 2 qualquer </Text>
-//   );
-// }
+const Page = styled.SafeAreaView`
+  background-color: #02f;
+  font-size: 30px;
+  flex: 1;
+`;
 
-// function TextoInicial() {
-//   return (
-//     <Text>Texto 3 qualquer </Text>
-//   );
-// }
-
-// class TextoInicial extends Component {
-//   render() {
-//     return (
-//       <Text>Texto 4 qualquer </Text>
-//     );
-//   }
-// }
-
-// const TextoInicial = () => <Text>Texto 5 qualquer </Text>;
-
-// export default TextoInicial;
+const Texto = styled.Text`
+  color: ${props=>props.cor};
+  font-size: 30px;
+  background-color: #222;
+`;
 
 export default () => {
   return (
-    <SafeAreaView style={styles.page}>
-      <Text style={{color: '#fff', fontSize: 25}}>Olá Mundo!</Text>
-      <Text style={styles.texto}>Olá Mundo2!</Text>
-      <Text style={[styles.texto, {fontSize: 25}]}>Olá Mundo3!</Text>
-    </SafeAreaView>
+    <Page>
+      <Texto cor="red">Texo exemplo</Texto>
+      <Texto cor="gray">Hello World</Texto>
+    </Page>
   );
 };
-
-const styles = StyleSheet.create({
-  page: {
-    width: '100%',
-    height: 200,
-    backgroundColor: '#333',
-  },
-  texto: {
-    color: '#55f',
-    fontSize: 20,
-  },
-});
